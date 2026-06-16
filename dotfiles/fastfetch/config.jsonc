@@ -1,0 +1,65 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "builtin",
+    "source": "nixos",
+    "padding": {
+      "top": 1,
+      "right": 3,
+      "left": 1
+    }
+  },
+  "display": {
+    "separator": " : "
+  },
+  "modules": [
+    // --- HARDWARE BOX ---
+    {
+      "type": "title",
+      "format": "┌─────────────── Hardware ───────────────┐"
+    },
+    { "type": "host", "key": "│ 💻 PC" },
+    { "type": "cpu", "key": "│  ├── 🧠 CPU" },
+    { "type": "gpu", "key": "│  ├── 🎨 GPU" },
+    { "type": "display", "key": "│  ├── 🖥️ Mon" },
+    { "type": "memory", "key": "│  ├── 💾 RAM" },
+    { "type": "disk", "key": "│  └── 💽 Disk" },
+    {
+      "type": "custom",
+      "format": "└────────────────────────────────────────┘"
+    },
+
+    "break",
+
+    // --- SOFTWARE BOX ---
+    {
+      "type": "custom",
+      "format": "┌─────────────── Software ───────────────┐"
+    },
+    { "type": "os", "key": "│ 💿 OS" },
+    { "type": "kernel", "key": "│  ├── ⚙️ Ker" },
+    { "type": "packages", "key": "│  ├── 📦 Pkg" },
+    { "type": "shell", "key": "│  └── 🐚 Sh" },
+    { "type": "wm", "key": "│ 🪟 WM" },
+    { "type": "theme", "key": "│  ├── 🎨 Thm" },
+    { "type": "font", "key": "│  ├── 🔤 Fnt" },
+    { "type": "terminal", "key": "│  └── 💻 Trm" },
+    {
+      "type": "custom",
+      "format": "└────────────────────────────────────────┘"
+    },
+
+    "break",
+
+    // --- UPTIME BOX ---
+    {
+      "type": "custom",
+      "format": "┌─────────────── Uptime ─────────────────┐"
+    },
+    { "type": "uptime", "key": "│ ⏱️ Up " },
+    {
+      "type": "custom",
+      "format": "└────────────────────────────────────────┘"
+    }
+  ]
+}
