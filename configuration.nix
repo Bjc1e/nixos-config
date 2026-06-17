@@ -47,6 +47,9 @@
     ];
   };
 
+  programs.fish.enable = true;
+  users.users.ben.shell = pkgs.fish;
+
   # Enable sound with pipewire
   services.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -71,6 +74,7 @@
     eza
     feishin
     fladder
+    bibata-cursors
 ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
