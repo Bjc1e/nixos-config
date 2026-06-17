@@ -1,0 +1,17 @@
+{
+  "refreshInterval": 5000,
+  "compactMode": true,
+  "showIpAddress": false,
+  "showPeerCount": false,
+  "hideDisconnected": false,
+  "hideMullvadExitNodes": true,
+  "showSearchBar": true,
+  "terminalCommand": "kitty",
+  "sshUsername": "ben",
+  "pingCount": 3,
+  "defaultPeerAction": "copy-ip",
+  "taildropEnabled": true,
+  "taildropDownloadDir": "~/Downloads",
+  "taildropReceiveMode": "operator",
+  "loginServer": ""
+}
