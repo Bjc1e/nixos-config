@@ -6,9 +6,7 @@
       ./hardware-configuration.nix
     ];
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg)   [
-    "mdk-sdk"
-  ];
+  nixpkgs.config.allowUnfree = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -89,6 +87,8 @@
     xwayland.enable = true;
   };
 
+  programs.steam.enable = true;
+
   users.users.ben = {
     isNormalUser = true;
     extraGroups = [ "wheel" "audio" "video" ];
@@ -114,6 +114,7 @@
     fladder
     bibata-cursors
     pavucontrol
+    tor-browser
 ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
