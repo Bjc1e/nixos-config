@@ -1,13 +1,16 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
+# Importing my hardware config and anything else I choose
 {
   imports =
     [
       ./hardware-configuration.nix
     ];
 
+  # Allows non open source packages
   nixpkgs.config.allowUnfree = true;
 
+  # Systemdboot setup  
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   
@@ -61,16 +64,20 @@
     "snd-hda-scodec-max98390-i2c" 
   ];
 
+  # Auto login
   services.getty.autologinUser = "ben";
 
+  # Tailscale
   services.tailscale.enable = true;
 
+  # Networking stuff
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
   hardware.bluetooth.enable = true;
   services.upower.enable = true;
   services.power-profiles-daemon.enable = true;
 
+  # Set timezone
   time.timeZone = "Europe/London";
 
   xdg.portal = {
@@ -89,11 +96,14 @@
 
   programs.steam.enable = true;
 
+  services.usbmuxd.enable = true;
+
   users.users.ben = {
     isNormalUser = true;
     extraGroups = [ "wheel" "audio" "video" ];
     packages = with pkgs; [
       tree
+      inputs.iloader.packages.${pkgs.system}.default
     ];
   };
 

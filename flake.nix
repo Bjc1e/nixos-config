@@ -11,6 +11,7 @@
       url = "github:noctalia-dev/noctalia/legacy-v4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    iloader.url = "github:nab138/iloader";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
