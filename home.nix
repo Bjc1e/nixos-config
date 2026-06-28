@@ -20,6 +20,7 @@
   home.file.".config/kitty" = { source = ./dotfiles/kitty; recursive = true; };
   home.file.".config/hypr" = { source = ./dotfiles/hypr; recursive = true; };
   home.file.".config/fastfetch" = { source = ./dotfiles/fastfetch; recursive = true; };
+  home.file.".config/yazi" = {source = ./dotfiles/yazi; recursive = true; };
 
   systemd.user.services.noctalia = {
 	Unit = {

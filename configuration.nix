@@ -114,7 +114,7 @@
     kitty
     fish
     chromium
-    thunar
+    yazi
     fzf
     brightnessctl
     fastfetch
@@ -127,6 +127,7 @@
     tor-browser
     cifs-utils
     bat
+    vlc
 ];
 
   fileSystems."/mnt/network_drive" = {
