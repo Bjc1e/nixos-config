@@ -15,12 +15,11 @@
   };
 
   home.file."Pictures/Wallpapers" = {source = ./assets/wallpapers; recursive = true; };
-  programs.fish.enable = true;
   home.file.".config/fish" = { source = ./dotfiles/fish; recursive = true; };
   home.file.".config/kitty" = { source = ./dotfiles/kitty; recursive = true; };
   home.file.".config/hypr" = { source = ./dotfiles/hypr; recursive = true; };
   home.file.".config/fastfetch" = { source = ./dotfiles/fastfetch; recursive = true; };
-  home.file.".config/yazi" = {source = ./dotfiles/yazi; recursive = true; };
+  home.file.".config/niri" = { source = ./dotfiles/niri; recursive = true; };
 
   systemd.user.services.noctalia = {
 	Unit = {
@@ -38,15 +37,5 @@
   };
 
   programs.git.enable = true;
-  programs.bash = {
-    enable = true;
-    shellAliases = {
-      btw = "echo i use nixos, btw";
-    };
-    profileExtra = ''
-      if uwsm check may-start; then
-        exec uwsm start hyprland-uwsm.desktop
-      fi
-    '';
-  };
+
 }

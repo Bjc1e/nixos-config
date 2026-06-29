@@ -11,9 +11,8 @@ if status is-interactive
     fastfetch
 end
 
-# Automatically launch Hyprland on TTY1 login
 if status is-login
     if test (tty) = /dev/tty1
-        exec Hyprland
+        exec niri
     end
 end

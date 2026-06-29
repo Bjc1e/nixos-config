@@ -94,6 +94,8 @@
     xwayland.enable = true;
   };
 
+  programs.niri.enable = true; # Enables Niri so that I can use it when I wish
+
   programs.steam.enable = true;
 
   services.usbmuxd.enable = true;
@@ -110,9 +112,10 @@
   programs.fish.enable = true;
   users.users.ben.shell = pkgs.fish;
 
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
   environment.systemPackages = with pkgs; [
     kitty
-    fish
     chromium
     yazi
     fzf
