@@ -1,0 +1,32 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "builtin",
+    "source": "nixos_small",
+    "padding": {
+      "top": 1,
+      "left": 1
+    }
+  },
+  "display": {
+    "separator": " : "
+  },
+  "modules": [
+    // Top border (48 characters wide)
+    { 
+      "type": "title", 
+      "format": "┌─────────────────── System ───────────────────┐" 
+    },
+    
+    // Modules with side borders
+    { "type": "cpu", "key": "│ CPU   " },
+    { "type": "gpu", "key": "│ GPU   " },
+    { "type": "display", "key": "│ Mon   " },
+    { "type": "memory", "key": "│ RAM   " },
+    { "type": "disk", "key": "│ Disk  " },
+    { "type": "uptime", "key": "│ Up    " },
+    
+    // Bottom border (48 characters wide)
+    { "type": "custom", "format": "└──────────────────────────────────────────────┘" }
+  ]
+}

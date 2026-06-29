@@ -37,5 +37,51 @@
   };
 
   programs.git.enable = true;
+  
+  programs.firefox = {
+    enable = true;
+    
+    # Use policies to auto-install extensions globally
+    policies = {
+      ExtensionSettings = {
+        # uBlock Origin
+        "uBlock0@raymondhill.net" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        # Popup Blocker (Strict)
+        "strictpopups@mybrowseraddon.com" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/strict-pop-up-blocker/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        # New Tab Override (Required to bypass Firefox's new tab security)
+        "newtaboverride@agenedia.com" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/new-tab-override/latest.xpi";
+          installation_mode = "force_installed";
+        };
+      };
+    };
 
+    profiles.ben = {
+      isDefault = true;
+      
+      settings = {
+        # Enforce Dark Theme across the UI, taskbar, and websites
+        "extensions.activeThemeID" = "firefox-compact-dark@mozilla.org";
+        "ui.systemUsesDarkTheme" = 1;
+        "browser.theme.content-theme" = 0; 
+        "browser.theme.toolbar-theme" = 0;
+        
+        # Enable custom CSS for future glassy/transparent tweaks
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
+
+        # Harden Firefox's native built-in popup blocker
+        "dom.disable_open_during_load" = true;
+        "privacy.popups.showBrowserMessage" = false;
+        
+        # Set the default startup page (not new tab) to your home server
+        "browser.startup.homepage" = "https://home.alkze.co.uk";
+      };
+    };
+  };
 }

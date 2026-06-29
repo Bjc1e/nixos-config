@@ -70,7 +70,7 @@ binds {
     Mod+M { quit; }
     Mod+E { spawn "kitty" "-e" "yazi"; }
     Mod+T { toggle-window-floating; }
-    Mod+B { spawn "chromium" "--enable-features=UseOzonePlatform" "--ozone-platform=wayland"; }
+    Mod+B { spawn "firefox"; }
     
     Mod+Space { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     Mod+L { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }

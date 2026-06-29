@@ -8,7 +8,7 @@ if status is-interactive
     alias cat="bat"
 
     # Display the system branding when opening a tab
-    fastfetch
+    fastfetch -c ~/.config/fastfetch/minimal.jsonc
 end
 
 if status is-login

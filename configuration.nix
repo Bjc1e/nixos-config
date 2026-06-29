@@ -82,7 +82,9 @@
 
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    xdgOpenUsePortal = true;
+    # Add wlr for better Niri/Wayland compatibility
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-wlr ];
     config.common.default = "*";
   };
 
@@ -116,7 +118,6 @@
 
   environment.systemPackages = with pkgs; [
     kitty
-    chromium
     yazi
     fzf
     brightnessctl
@@ -131,6 +132,15 @@
     cifs-utils
     bat
     vlc
+    (pkgs.symlinkJoin {
+      name = "ferdium-wayland";
+      paths = [ ferdium ];
+      buildInputs = [ makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/ferdium \
+          --add-flags "--ozone-platform=wayland --enable-features=WaylandWindowDecorations"
+      '';
+    })
 ];
 
   fileSystems."/mnt/network_drive" = {
