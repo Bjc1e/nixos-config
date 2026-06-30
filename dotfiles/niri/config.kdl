@@ -11,6 +11,7 @@ environment {
 
 // Autostart
 spawn-at-startup "noctalia-shell"
+spawn-at-startup "ferdium"
 
 // Prefer no client-side decorations to help with transparent borders
 prefer-no-csd
