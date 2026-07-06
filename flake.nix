@@ -12,6 +12,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     iloader.url = "github:nab138/iloader";
+    crunchy-cli.url = "github:crunchy-labs/crunchy-cli";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: {

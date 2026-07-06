@@ -5,14 +5,11 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./modules/system/default.nix
+      ./dotfiles/modules/system/default.nix
     ];
 
   # Allows non open source packages
   nixpkgs.config.allowUnfree = true;
-
-  # Auto login
-  services.getty.autologinUser = "ben";
 
   # Set timezone
   time.timeZone = "Europe/London";
