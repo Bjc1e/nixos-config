@@ -13,6 +13,7 @@
     };
     iloader.url = "github:nab138/iloader";
     crunchy-cli.url = "github:crunchy-labs/crunchy-cli";
+    fetch.url = "github:areofyl/fetch";
   };
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: {

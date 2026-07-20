@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -26,5 +26,6 @@
       '';
     })
     xwayland-satellite
+    inputs.fetch.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }
