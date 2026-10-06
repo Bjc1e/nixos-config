@@ -4,7 +4,7 @@ if status is-interactive
 
     # Enable crisp aliases with icons
     alias ls="eza --icons --group-directories-first"
-    alias ll="eza -l --icons --group-directories-first"
+    alias ll="eza -la --icons --group-directories-first"
     alias cat="bat"
 
     # Display the system branding when opening a tab

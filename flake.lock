@@ -122,6 +122,28 @@
         "type": "github"
       }
     },
+    "home-manager_2": {
+      "inputs": {
+        "nixpkgs": [
+          "jfsh",
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1784350909,
+        "narHash": "sha256-ZWyzLbS1yKUTeFJLmdVuWNnHttL333/ldJbEE+KzCrM=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "4ce190229c73d44536caa7072f6308fb2d8feeb3",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "ref": "release-26.05",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
     "iloader": {
       "inputs": {
         "bun2nix": "bun2nix",
@@ -141,6 +163,27 @@
       "original": {
         "owner": "nab138",
         "repo": "iloader",
+        "type": "github"
+      }
+    },
+    "jfsh": {
+      "inputs": {
+        "home-manager": "home-manager_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1784839435,
+        "narHash": "sha256-YB+C54eqZVYxO/Jrl3FKhwIQSA9Puo9uMJGBgJhYrIs=",
+        "owner": "hacel",
+        "repo": "jfsh",
+        "rev": "1859c23d6e4713a1fb669d47365199ca30c1ab49",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hacel",
+        "repo": "jfsh",
         "type": "github"
       }
     },
@@ -257,6 +300,7 @@
         "fetch": "fetch",
         "home-manager": "home-manager",
         "iloader": "iloader",
+        "jfsh": "jfsh",
         "nixpkgs": "nixpkgs_4",
         "noctalia": "noctalia"
       }

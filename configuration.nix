@@ -6,6 +6,7 @@
     [
       ./hardware-configuration.nix
       ./dotfiles/modules/system/default.nix
+      ./dotfiles/modules/system/vDisplay.nix
     ];
 
   # Allows non open source packages

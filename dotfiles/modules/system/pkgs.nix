@@ -27,5 +27,8 @@
     })
     xwayland-satellite
     inputs.fetch.packages.${pkgs.stdenv.hostPlatform.system}.default
+    prismlauncher
+    netbird
+    obsidian
   ];
 }

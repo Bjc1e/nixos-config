@@ -12,6 +12,7 @@ environment {
 // Autostart
 spawn-at-startup "noctalia-shell"
 spawn-at-startup "ferdium"
+spawn-at-startup "niri" "msg" "output" "Virtual-1" "off"
 
 // Prefer no client-side decorations to help with transparent borders
 prefer-no-csd
@@ -33,10 +34,21 @@ input {
     focus-follows-mouse
 }
 
-// Outputs Configuration
 output "eDP-1" {
+    position x=0 y=0
     mode "2880x1800@120"
     scale 2
+}
+
+output "Virtual-1" {
+    // High-res mode supported natively by vkms
+    mode "2560x1600@59.987"
+    
+    // 1.5 scale creates a crisp 1706x1066 logical canvas
+    scale 2.0
+    
+    // Placed exactly at the right boundary of eDP-1
+    position x=1440 y=0
 }
 
 // Layout Configuration
@@ -76,10 +88,18 @@ binds {
     Mod+Space { spawn "noctalia-shell" "ipc" "call" "launcher" "toggle"; }
     Mod+L { spawn "noctalia-shell" "ipc" "call" "lockScreen" "lock"; }
 
-    // Audio
+    // Audio Buttons
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "-l" "1.0" "@DEFAULT_AUDIO_SINK@" "5%+"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
     XF86AudioMute        allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+
+    // Audio Volume Control (Mod + MX Master 3 Side Scroll Wheel)
+    Mod+WheelScrollRight allow-when-locked=true { spawn "wpctl" "set-volume" "-l" "1.0" "@DEFAULT_AUDIO_SINK@" "5%+"; }
+    Mod+WheelScrollLeft  allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "5%-"; }
+
+    // Workspace Navigation (Mod + Vertical Scroll Wheel)
+    Mod+WheelScrollDown { focus-workspace-down; }
+    Mod+WheelScrollUp   { focus-workspace-up; }
 
     // Brightness
     XF86MonBrightnessUp   allow-when-locked=true { spawn "brightnessctl" "set" "5%+"; }
@@ -91,6 +111,16 @@ binds {
     Mod+Up    { focus-workspace-up;  }
     Mod+Down  { focus-workspace-down; }
     Mod+F     { maximize-column; }
+
+    // Monitor Focus & Window Movement (Laptop <-> iPad)
+    Mod+Shift+Left       { focus-monitor-left; }
+    Mod+Shift+Right      { focus-monitor-right; }
+    Mod+Shift+Ctrl+Left  { move-column-to-monitor-left; }
+    Mod+Shift+Ctrl+Right { move-column-to-monitor-right; }
+    
+    // Direct display shortcuts
+    Mod+Shift+O { move-column-to-monitor "Virtual-1"; } // Send to iPad
+    Mod+Shift+I { move-column-to-monitor "eDP-1"; }     // Bring back to Laptop
 
     // Workspaces
     Mod+1 { focus-workspace 1; }
@@ -113,10 +143,4 @@ binds {
     Mod+Shift+7 { move-window-to-workspace 7; }
     Mod+Shift+8 { move-window-to-workspace 8; }
     Mod+Shift+9 { move-window-to-workspace 9; }
-
-    // Windows based switch Workspace (Up/Down)
-    Ctrl+Mod+left { focus-column-first; }
-    Ctrl+Mod+Right { focus-column-last; }
-    Ctrl+Mod+Up   { focus-workspace-up; }  
-    Ctrl+Mod+Down { focus-workspace-down; } 
 }

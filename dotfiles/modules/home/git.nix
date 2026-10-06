@@ -2,7 +2,7 @@
 {
   programs.git.enable = true;
 
-  programs.git.aliases = {
+  programs.git.settings.aliases = {
     st = "status";
     co = "checkout";
     br = "branch";

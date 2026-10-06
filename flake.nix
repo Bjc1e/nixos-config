@@ -3,14 +3,22 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     noctalia = {
       url = "github:noctalia-dev/noctalia/legacy-v4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    jfsh = {
+      url = "github:hacel/jfsh";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     iloader.url = "github:nab138/iloader";
     crunchy-cli.url = "github:crunchy-labs/crunchy-cli";
     fetch.url = "github:areofyl/fetch";

@@ -1,12 +1,18 @@
-{ config, lib, pkgs, ... }:
+{ pkgs, ... }:
 
 {
-  fileSystems."/mnt/network_drive" = {
-    device = "//192.168.0.72/data";
-    fsType = "cifs";
-    options = let
-      # Prevent system hangs if the network is unavailable
-      automount_opts = "x-systemd.automount,noauto,x-systemd.idle-timeout=60,x-systemd.device-timeout=5s,x-systemd.mount-timeout=5s";
-    in ["${automount_opts},credentials=/home/ben/Important/.smb-secrets,uid=1000,gid=100"];
+  environment.systemPackages = with pkgs; [
+    nfs-utils
+  ];
+
+  fileSystems."/home/ben/NFS" = {
+    device = "11.0.0.4:/shared"; # Replace '/shared' with your actual remote NFS export path
+    fsType = "nfs";
+    options = [
+      "x-systemd.automount"
+      "x-systemd.idle-timeout=60"
+      "x-systemd.device-timeout=5s"
+      "noauto"
+    ];
   };
 }
